@@ -34,20 +34,28 @@ const app = {
     const flick = {
       id: this.max + 1,
       name: f.flickName.value,
+      favStatus: false,
     }
     const listItem = this.renderListItem(flick)
     this.list.appendChild(listItem)
-
+    this.flicks.push(flick)
     this.max ++
   },
   changeFavButton(ev){
      f= ev.target.parentElement
      f.style.color= "cornflowerblue"
+     if (f.style.color=="cornflowerblue"){
+         f.style.color=="blue"
+         this.flick.favStatus= true
+     }
+     else{
+         this.flick.favStatus= false
+     }
   },
   DeleteButton(ev){
      f= ev.target.parentElement
      f.remove(f)
-  }
+  },
 }
 
 app.init({
