@@ -11,7 +11,6 @@ const app = {
         this.handleSubmit.bind(this)
       )
   },
-
   renderListItem(flick) {
     const item = document.createElement('li')
     item.textContent = flick.name
@@ -19,10 +18,11 @@ const app = {
         favButton = document.createElement("button")
         favButton.textContent= "Favorite Button"
         favButton.setAttribute("class","success favButton")
+        favButton.setAttribute("id","idButton")
+        favButton.addEventListener('click',this.changeFavButton.bind(this))
         item.appendChild(favButton)
         return item
   },
-
   handleSubmit(ev) {
     ev.preventDefault()
     const f = ev.target
@@ -30,11 +30,14 @@ const app = {
       id: this.max + 1,
       name: f.flickName.value,
     }
-
     const listItem = this.renderListItem(flick)
     this.list.appendChild(listItem)
 
     this.max ++
+  },
+  changeFavButton(ev){
+     f= ev.target.parentElement
+     f.style.color= "cornflowerblue"
   },
 }
 
