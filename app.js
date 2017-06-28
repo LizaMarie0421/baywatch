@@ -18,9 +18,14 @@ const app = {
         favButton = document.createElement("button")
         favButton.textContent= "Favorite Button"
         favButton.setAttribute("class","success favButton")
-        favButton.setAttribute("id","idButton")
         favButton.addEventListener('click',this.changeFavButton.bind(this))
         item.appendChild(favButton)
+
+        delButton = document.createElement("button")
+        delButton.textContent= "Delete Button"
+        delButton.setAttribute("class","success delButton")
+        delButton.addEventListener('click',this.DeleteButton.bind(this))
+        item.appendChild(delButton)
         return item
   },
   handleSubmit(ev) {
@@ -39,6 +44,10 @@ const app = {
      f= ev.target.parentElement
      f.style.color= "cornflowerblue"
   },
+  DeleteButton(ev){
+     f= ev.target.parentElement
+     f.remove(f)
+  }
 }
 
 app.init({
