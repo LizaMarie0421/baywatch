@@ -3,7 +3,7 @@ const app = {
     this.flicks = []
     this.max = 0
     this.list = document.querySelector(selectors.listSelector)
-
+    this.button= 
     document
       .querySelector(selectors.formSelector)
       .addEventListener(
@@ -15,7 +15,12 @@ const app = {
   renderListItem(flick) {
     const item = document.createElement('li')
     item.textContent = flick.name
-    return item
+    
+        favButton = document.createElement("button")
+        favButton.textContent= "Favorite Button"
+        favButton.setAttribute("class","success favButton")
+        item.appendChild(favButton)
+        return item
   },
 
   handleSubmit(ev) {
