@@ -16,13 +16,13 @@ const app = {
     item.textContent = flick.name
     
         favButton = document.createElement("button")
-        favButton.textContent= "Favorite Button"
+        favButton.textContent= "I Like!!"
         favButton.setAttribute("class","success favButton")
         favButton.addEventListener('click',this.changeFavButton.bind(this))
         item.appendChild(favButton)
 
         delButton = document.createElement("button")
-        delButton.textContent= "Delete Button"
+        delButton.textContent= "Delete Please"
         delButton.setAttribute("class","success delButton")
         delButton.addEventListener('click',this.DeleteButton.bind(this))
         item.appendChild(delButton)
@@ -40,6 +40,8 @@ const app = {
     this.list.appendChild(listItem)
     this.flicks.push(flick)
     this.max ++
+ //   f.flickName.value ="" or
+    f.reset()
   },
   changeFavButton(ev){
      f= ev.target.parentElement
@@ -50,7 +52,7 @@ const app = {
      }
      else{
          this.flick.favStatus= false
-     }
+     } 
   },
   DeleteButton(ev){
      f= ev.target.parentElement

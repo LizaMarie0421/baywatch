@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
 h1 {
     color: #20B2AA;
     text-shadow: 3px 2px black;
-
+    font-family: 'Playfair Display', serif;
 }
 
 body {
@@ -14,6 +16,7 @@ body {
     color: white;
     text-shadow: 3px 2px black;
     font-weight: bold;
+    font-family: 'Playfair Display', serif;
     font-style: oblique;
     padding: 15px 32px;
     text-align: center;
@@ -29,7 +32,9 @@ body {
     background-color: #CD5C5C;
     color: black;
     text-shadow: 3px 2px white;
-    font-weight: bold;
-    
-    
+    font-weight: bold;    
+}
+
+.list-container{
+    background: rgba(192,192,192, .5);
 }
