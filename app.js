@@ -14,7 +14,8 @@ const app = {
   renderListItem(flick) {
     const item = document.createElement('li')
     item.textContent = flick.name
-    
+    item.dataset.id= flick.id   
+     //allows for each new flick to have own attribute
         favButton = document.createElement("button")
         favButton.textContent= "I Like!!"
         favButton.setAttribute("class","success favButton")
@@ -37,22 +38,25 @@ const app = {
       favStatus: false,
     }
     const listItem = this.renderListItem(flick)
-    this.list.appendChild(listItem)
-    this.flicks.push(flick)
+    this.list.insertBefore(listItem, this.list.firstElementChild)
+   // this.list.appendChild(listItem)
+    this.flicks.unshift(flick)
+    //this.flicks.push(flick)
     this.max ++
  //   f.flickName.value ="" or
-    f.reset()
+    f.reset() 
+    // resets form when click so it is empty
   },
   changeFavButton(ev){
      f= ev.target.parentElement
      f.style.color= "cornflowerblue"
-     if (f.style.color=="cornflowerblue"){
-         f.style.color=="blue"
-         this.flick.favStatus= true
-     }
-     else{
-         this.flick.favStatus= false
-     } 
+    //  if (f.style.color=="cornflowerblue"){
+    //      f.style.color=="blue"
+    //      this.flick.favStatus= true
+    //  }
+    //  else{
+    //      this.flick.favStatus= false
+    //  } 
   },
   DeleteButton(ev){
      f= ev.target.parentElement
