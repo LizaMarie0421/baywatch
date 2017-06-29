@@ -38,3 +38,6 @@ body {
 .list-container{
     background: rgba(192,192,192, .5);
 }
+.template{
+    display: none;
+}

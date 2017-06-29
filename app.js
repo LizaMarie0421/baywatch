@@ -3,6 +3,7 @@ const app = {
     this.flicks = []
     this.max = 0
     this.list = document.querySelector(selectors.listSelector)
+    this.template = document.querySelector(selectors.templateSelector)
     this.button= 
     document
       .querySelector(selectors.formSelector)
@@ -12,21 +13,25 @@ const app = {
       )
   },
   renderListItem(flick) {
-    const item = document.createElement('li')
-    item.textContent = flick.name
+    const item =this.template.cloneNode(true)
+    item.classList.remove('template')
     item.dataset.id= flick.id   
      //allows for each new flick to have own attribute
-        favButton = document.createElement("button")
-        favButton.textContent= "I Like!!"
-        favButton.setAttribute("class","success favButton")
-        favButton.addEventListener('click',this.changeFavButton.bind(this))
-        item.appendChild(favButton)
+    item
+        .querySelector('.flick-name')
+        .textContent = flick.name
+     
+        // favButton = document.createElement("button")
+        // favButton.textContent= "I Like!!"
+        // favButton.setAttribute("class","success favButton")
+        // favButton.addEventListener('click',this.changeFavButton.bind(this))
+        // item.appendChild(favButton)
 
-        delButton = document.createElement("button")
-        delButton.textContent= "Delete Please"
-        delButton.setAttribute("class","success delButton")
-        delButton.addEventListener('click',this.DeleteButton.bind(this))
-        item.appendChild(delButton)
+        // delButton = document.createElement("button")
+        // delButton.textContent= "Delete Please"
+        // delButton.setAttribute("class","success delButton")
+        // delButton.addEventListener('click',this.DeleteButton.bind(this))
+        // item.appendChild(delButton)
         return item
   },
   handleSubmit(ev) {
@@ -49,9 +54,9 @@ const app = {
   },
   changeFavButton(ev){
      f= ev.target.parentElement
-     f.style.color= "cornflowerblue"
-    //  if (f.style.color=="cornflowerblue"){
-    //      f.style.color=="blue"
+     f.style.backgroundColor= "cornflowerblue"
+    //  if (f.style.backgroundColor=="cornflowerblue"){
+    //      f.style.backgroundColor=="blue"
     //      this.flick.favStatus= true
     //  }
     //  else{
@@ -67,4 +72,5 @@ const app = {
 app.init({
   formSelector: 'form#flick-form',
   listSelector: '#flick-list',
+  templateSelector: '.flick.template',
 })
