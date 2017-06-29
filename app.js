@@ -26,7 +26,9 @@ const app = {
         // favButton.setAttribute("class","success favButton")
         // favButton.addEventListener('click',this.changeFavButton.bind(this))
         // item.appendChild(favButton)
-
+    item
+        .querySelector('button.remove')
+        .addEventListener('click', this.removeFlick')
         // delButton = document.createElement("button")
         // delButton.textContent= "Delete Please"
         // delButton.setAttribute("class","success delButton")
@@ -63,9 +65,8 @@ const app = {
     //      this.flick.favStatus= false
     //  } 
   },
-  DeleteButton(ev){
-     f= ev.target.parentElement
-     f.remove(f)
+  removeFlick(ev){
+     ev.target.closest('.flick').remove(f)
   },
 }
 

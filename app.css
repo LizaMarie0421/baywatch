@@ -38,6 +38,18 @@ body {
 .list-container{
     background: rgba(192,192,192, .5);
 }
+#flick-list{
+    margin-bottom: 0;
+}
 .template{
     display: none;
+}
+.flic{
+    border-top: 1px solid lightgray;
+}
+.flick-name{
+    padding: 0 0.5rem ;
+}
+.flick .actions.button-group{
+    margin-bottom: 0;
 }
