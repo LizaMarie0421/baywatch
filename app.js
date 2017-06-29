@@ -28,7 +28,14 @@ const app = {
         // item.appendChild(favButton)
     item
         .querySelector('button.remove')
-        .addEventListener('click', this.removeFlick')
+        .addEventListener(
+            'click',
+            'this.removeFlick').bind(this,flick)
+    item
+        .querySelector('button.fav')
+        .addEventListener(
+            'click',
+            'this.favFlick').bind(this,flick)            
         // delButton = document.createElement("button")
         // delButton.textContent= "Delete Please"
         // delButton.setAttribute("class","success delButton")
@@ -46,27 +53,22 @@ const app = {
     }
     const listItem = this.renderListItem(flick)
     this.list.insertBefore(listItem, this.list.firstElementChild)
-   // this.list.appendChild(listItem)
     this.flicks.unshift(flick)
-    //this.flicks.push(flick)
     this.max ++
- //   f.flickName.value ="" or
     f.reset() 
-    // resets form when click so it is empty
   },
-  changeFavButton(ev){
-     f= ev.target.parentElement
-     f.style.backgroundColor= "cornflowerblue"
-    //  if (f.style.backgroundColor=="cornflowerblue"){
-    //      f.style.backgroundColor=="blue"
-    //      this.flick.favStatus= true
-    //  }
-    //  else{
-    //      this.flick.favStatus= false
-    //  } 
+  favFlck(flick, ev){
+    const listItem= ev.target.closest('.flick')
+    listItem.classList.add('fav')
+    flick.fav=true
+
   },
-  removeFlick(ev){
-     ev.target.closest('.flick').remove(f)
+  removeFlick(flick, ev){
+     //remove from dom
+     ev.target.closest('.flick').remove()
+     //remove from array
+    const i = this.flicks.indexOf(flick)
+    this.flicks.splice(i,1)
   },
 }
 
