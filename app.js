@@ -12,6 +12,24 @@ const app = {
         this.handleSubmit.bind(this)
       )
   },
+  searchList(flick) {
+    // Declare variables
+    var input, filter, ul, li, a, i;
+    input = document.getElementById('search');
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("flick-list");
+    li = ul.getElementsByTagName('flick');
+
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+    },
   moveDownFlick(flick, ev) {
       const listItem = ev.target.closest('.flick')
       this.list.insertBefore(listItem, listItem.nextSibling.nextSibling)
